@@ -58,6 +58,7 @@ const storage = multer.diskStorage({
       .on('end', () => {
         console.log("FFmpeg has finished")
         console.log(__dirname)
+        res.download(`${__dirname}/uploads/audio.mp3`)
         // res.download('./audio.mp3')
       })
   
@@ -66,7 +67,6 @@ const storage = multer.diskStorage({
         console.error(error.message);
       });
 
-      res.download(`${__dirname}/uploads/audio.mp3`)
    }) 
 
 app.listen(port, () => {
